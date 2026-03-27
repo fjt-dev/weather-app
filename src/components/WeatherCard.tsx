@@ -17,12 +17,12 @@ const WeatherCard = ({ weather, locationName }: Props) => {
     <div className="card bg-base-100 shadow p-6 gap-2">
       <p>取得日時：{date}</p>
       <p>{locationName}</p>
-      <div className="flex item-center gap-2">
+      <div className="flex items-center gap-2">
         <img src={`/icons/${icon}.svg`} alt={label} className="w-12 h-12" />
         <span>{label}</span>
       </div>
       <p>
-        気温：{weather.current.temperature_2m}°C / 温度：{weather.current.relative_humidity_2m}
+        気温：{weather.current.temperature_2m}°C / 湿度：{weather.current.relative_humidity_2m}%
       </p>
       <p>
         最高気温：{tempMax}°C 最低気温：{tempMin}°C
