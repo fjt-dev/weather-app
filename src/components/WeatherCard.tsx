@@ -25,7 +25,7 @@ const WeatherCard = ({ weather, locationName }: Props) => {
         気温：{weather.current.temperature_2m}°C / 湿度：{weather.current.relative_humidity_2m}%
       </p>
       <p>
-        最高気温：{tempMax}°C 最低気温：{tempMin}°C
+        最高気温：{tempMax}°C / 最低気温：{tempMin}°C
       </p>
     </div>
   );
