@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# weather-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Screenshot
 
-Currently, two official plugins are available:
+![screenshot](./screenshots/app.jpg)
+This is an illustrative image.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## React Compiler
+This is a web application that displays the weather at your current location. The search function will be added at a later date.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19
+- Vite
+- TypeScript
+- TailwindCSS / [daisyUI](https://daisyui.com/)
+- [basmilius/weather-icons](https://github.com/basmilius/weather-icons/)
+- [Open-Meteo](https://open-meteo.com/)
+- [React Leaflet](https://react-leaflet.js.org/) / OpenStreetMap
+- [Nominatim](https://nominatim.org/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Acquiring current location using Geolocation API
+- Displaying weather, temperature, and humidity for the acquired location
+- Displaying a map of the area around the current location
+- Responsive design support
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+weather-app/
+├─ public/
+│   └─ icons/
+├─ src/
+│   ├─ components/
+│   │   ├─ SearchBar.tsx
+│   │   ├─ WeatherCard.tsx
+│   │   └─ MapView.tsx
+│   ├─ hooks/
+│   │   ├─ useGeolocation.ts
+│   │   ├─ useWeather.ts
+│   │   └─ useReverseGeocode.ts
+│   ├─ types/
+│   │   └─ index.ts
+│   ├─ utils/
+│   │   └─ weatherCode.ts
+│   ├─ App.tsx
+│   ├─ index.css
+│   └─ main.tsx
+├─ index.html
+└─ README.md
 ```
