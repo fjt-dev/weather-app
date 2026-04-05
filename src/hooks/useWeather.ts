@@ -5,7 +5,7 @@ import type { Coordinates, OpenMeteoResponse } from '../types';
 // 天気情報を取得するための関数
 const fetchWeather = async (coords: Coordinates): Promise<OpenMeteoResponse> => {
   const res = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${coords.latitude}&longitude=${coords.longitude}&daily=temperature_2m_max,temperature_2m_min&current=temperature_2m,relative_humidity_2m,weather_code`
+    `https://api.open-meteo.com/v1/forecast?latitude=${coords.latitude}&longitude=${coords.longitude}&daily=temperature_2m_max,temperature_2m_min&current=temperature_2m,relative_humidity_2m,weather_code&timezone=auto`
   );
   if (!res.ok) throw new Error(res.statusText);
   return res.json();

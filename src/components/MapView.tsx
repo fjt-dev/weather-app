@@ -1,5 +1,5 @@
 // Map
-import { MapContainer, Popup, TileLayer, Marker } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import type { Coordinates } from '../types';
@@ -21,14 +21,14 @@ type Props = {
 
 const MapView = ({ coords }: Props) => {
   return (
-    <MapContainer center={[coords.latitude, coords.longitude]} zoom={13} className="w-100 h-75">
+    <MapContainer center={[coords.latitude, coords.longitude]} zoom={10} className="w-100 h-75 rounded-lg">
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[coords.latitude, coords.longitude]}>
+      {/* <Marker position={[coords.latitude, coords.longitude]}>
         <Popup>現在地</Popup>
-      </Marker>
+      </Marker> */}
     </MapContainer>
   );
 };

@@ -4,7 +4,7 @@ import type { Coordinates, NominatimReverse } from '../types';
 // 地名を取得するための関数
 const fetchLocationName = async (coords: Coordinates): Promise<NominatimReverse> => {
   const res = await fetch(
-    `https://nominatim.openstreetmap.org/reverse?lat=${coords.latitude}&lon=${coords.longitude}&format=json`
+    `https://nominatim.openstreetmap.org/reverse?lat=${coords.latitude}&lon=${coords.longitude}&format=json&zoom=10`
   );
   if (!res.ok) throw new Error(res.statusText);
   return res.json();
